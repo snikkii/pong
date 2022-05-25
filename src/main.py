@@ -50,10 +50,10 @@ screen_width = 1200
 
 screen = pygame.display.set_mode([screen_width, screen_height])
 clock = pygame.time.Clock()
-background_picture = pygame.image.load("resource/backgroundPic.png")
-ball_picture = pygame.image.load("resource/ball.png")
-skateboard_picture = pygame.image.load("resource/skateboard.png")
-pygame.display.set_caption("Face Recognition Demo Game")
+background_picture = pygame.image.load("../resource/backgroundPic.png")
+ball_picture = pygame.image.load("../resource/ball.png")
+skateboard_picture = pygame.image.load("../resource/skateboard.png")
+pygame.display.set_caption("annikas pong game")
 
 # figure
 skateboard_x = 100
