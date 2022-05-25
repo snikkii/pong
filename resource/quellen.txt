@@ -1,0 +1,3 @@
+background: https://drive.google.com/file/d/19MKdetBk8fvaV-go6EveyxJRi2bW21Hy/view
+skateboard without color: https://cdn-icons-png.flaticon.com/512/3233/3233950.png
+ball: selfmade
