@@ -1,9 +1,15 @@
+import threading
 import time
 import pygame
 import sys
-import os
+
+import zmq
+
 from settings_text import SettingsText
 from game import Game
+
+
+
 
 pygame.init()
 pygame.font.init()
@@ -11,12 +17,11 @@ pygame.font.init()
 screen_height = 595
 screen_width = 1200
 
-
 screen = pygame.display.set_mode([screen_width, screen_height])
 clock = pygame.time.Clock()
-background_picture = pygame.image.load("./resource/backgroundPic.png")
-ball_picture = pygame.image.load("./resource/ball.png")
-skateboard_picture = pygame.image.load("./resource/skateboard.png")
+background_picture = pygame.image.load("../resource/backgroundPic.png")
+ball_picture = pygame.image.load("../resource/ball.png")
+skateboard_picture = pygame.image.load("../resource/skateboard.png")
 pygame.display.set_caption("pong game")
 
 # fonts
@@ -39,7 +44,7 @@ game_over_rectangle.center = (screen_width // 2, screen_height // 2)
 
 # game
 game = Game(screen, screen_width, screen_height, ball_picture, skateboard_picture, 7, [6, 6], pygame.Rect(-2, 0, 2, 600), pygame.Rect(1200, 0, 2, 600), background_picture, pygame.time.Clock())
-skateboard_x = 100
+skateboard_x = screen_width//2
 skateboard_y = 490
 skateboard_rectangle = game.create_skateboard(skateboard_x, skateboard_y)
 ball_rectangle = game.create_ball()
@@ -64,7 +69,9 @@ while True:
             game.play_with_keyboard(ball_rectangle, skateboard_rectangle, game_over_text, game_over_rectangle)
 
         if pressed[pygame.K_f]:
-            print("with face")
+            game.play_with_face(ball_rectangle, skateboard_rectangle, game_over_text, game_over_rectangle)
+
+
         if pressed[pygame.K_e]:
             time.sleep(0.5)
             sys.exit()
